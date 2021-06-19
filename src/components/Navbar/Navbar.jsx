@@ -4,9 +4,10 @@ import { AddShoppingCart as ShoppingCart } from '@material-ui/icons'
 import logo from '../../assets/images/shop.png';
 import NavbarStyles from './styles';
 
-export const Navbar = () => {
-
+export const Navbar = props => {
     const classes = NavbarStyles();
+    const {totalItems} = props;
+
     return (
         <>
             <AppBar position="fixed" className={classes.appBar} color="inherit">
@@ -18,7 +19,7 @@ export const Navbar = () => {
                     <div className={classes.grow}/>
                     <div className={classes.button}>
                         <IconButton aria-label="Show cart items" color="inherit">
-                            <Badge badgeContent={2} color="secondary">
+                            <Badge badgeContent={totalItems} color="secondary">
                                 <ShoppingCart/>
                             </Badge>
                         </IconButton>
